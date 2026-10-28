@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Agustin Rovero</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+
+		<link rel="preconnect" href="https://googleapis.com">
+		<link rel="preconnect" href="https://gstatic.com" crossorigin>
+		<!-- Loads full ranges: Weight (100-900), Width (50-200), Slant (-10-0), YOPQ (18-122) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<link rel="stylesheet" href="assets/css/styles.css"/>
+		<link rel="stylesheet" href="assets/css/header.css"/>
+		<link rel="stylesheet" href="assets/css/projects.css"/>
+		<link rel="stylesheet" href="assets/css/hero.css"/>
+		<link rel="stylesheet" href="assets/css/contact.css"/>
+		<link rel="stylesheet" href="assets/css/about.css"/>
+		<link rel="stylesheet" href="assets/css/slideshow.css"/>
+	</head>
+
+
+	<!------------------------------------------------------------->
+
+	<body>
+	<header class="header">
+		<div>
+			<img src="assets/images/logo.svg" width="80" height="80">
+		</div>
+
+		<div>
+			<a href="index.html#projects">
+			<button class="pcb-button">
+			<span class="btn-text">Projects</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+
+			<button class="pcb-button">
+			<span class="btn-text">Skills</span>
+			<span class="trace-border"></span>
+			</button>
+
+			<a href="#contact">
+			<button class="pcb-button">
+			<span class="btn-text">Contact Me</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+		</div>
+	</header>
+
+	<!------------------------------------------------------------->
+
+	<div class="content" style="margin-left: 200px; margin-right: 200px; padding: 40px 20px; text-align: center;">
+		<!-- Contenedor intermedio que se ajusta al tamaño de su contenido -->
+		<div style="display: inline-block; text-align: center;">
+			<!-- Título principal -->
+			<h1 style="font-size: 3.5rem; font-weight: 800; background: white; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; margin-bottom: 15px; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+				Quick Pulse (SWGO)
+			</h1>
+			<!-- Divisor Horizontal (ahora ocupa el 100% del ancho del título) -->
+			<hr style="width: 100%; border: 0; height: 4px; background: #00ffcc; border-radius: 2px; margin: 0;">
+		</div>
+	</div>
+
+	<div class="content" style="margin-left: 200px; margin-right: 200px; text-align: justify">
+		<h2>Project Overview</h2>
+		<p>
+			High-Speed Pulse Generator for PMT Emulation
+
+			This project focused on the design, development, and implementation of QuickPulse, a dedicated high-speed electronic pulse generator designed to emulate Photomultiplier Tubes (PMTs). Developed within the framework of the Southern Wide-field Gamma-ray Observatory (SWGO) astrophysics research project, this device served as a crucial laboratory tool to test and calibrate data acquisition electronics without relying on unpredictable real-world particle detections.
+		</p>
+
+		<h2>Project Context & Rationale</h2>
+		<ul>
+			<li>
+				Astrophysical Framework: The system supported research on ultra-high-energy cosmic gamma rays, which provide direct tracking to extreme celestial sources because they are not deflected by cosmic magnetic fields.
+			</li>
+			<li>
+				The Detection Challenge: Ground-based observatories capture these gamma rays through high-altitude Water Cherenkov Detectors (WCDs). When cosmic particles strike the water tanks, they produce brief flashes of Cherenkov light.
+			</li>
+			<li>
+				The Role of PMTs: Photomultiplier Tubes sitting at the bottom of these tanks register the light and convert it into ultra-fast electrical pulses lasting only a few nanoseconds.
+			</li>
+		</ul>
+
+		<h2>Technical Challenges & Lessons Learned</h2>
+		<h3>1. High-Speed Pulse Shaping & Time Resolution</h3>
+		<ul class="itemize">
+			<li>
+				The Challenge: Generating clean, predictable electrical pulses down to 5 nanoseconds required an operating bandwidth far beyond conventional digital electronics.
+			</li>
+			<li>
+				The Lesson: Implementing a dedicated programmable delay line (DS1023) combined with a high-speed comparator array (LT1721) proved highly effective. Relying on discrete logic gates or standard analog RC circuits was ruled out early due to poor digital control and extreme layout complexity.
+			</li>
+		</ul>
+
+		<h3>2. Analog Amplitude Control & Unwanted Offsets</h3>
+		<ul class="itemize">
+			<li>
+				The Challenge: While the temporal control of the pulse was highly accurate, managing the amplitude and offset balance presented significant signal degradation. Offsets accumulated across the analog multiplier stage (ADL5391) and the final differential-to-single-ended amplifier (THS3491) shifted the expected output levels.
+			</li>
+			<li>
+				The Lesson: In high-speed paths, DC offsets cannot be treated as negligible systemic noise. Future iterations will incorporate active high-pass filtering right before the final amplification stage to maximize dynamic range, or utilize the DAC to perform software-based auto-calibration routines.
+			</li>
+		</ul>
+
+		<h3>3. Electromagnetic Interference & Power Supply Coupling</h3>
+		<ul class="itemize">
+			<li>
+				The Challenge: Initial testing revealed an unwanted 100 kHz, 100 mV AC ripple riding on top of a heavy DC component at the output when no pulses were being generated.
+			</li>
+			<li>
+				The Lesson: This interference tracked back directly to the switching frequency of the \(\pm15\text{ V}\) AC-DC power supply, which ran parallel to the high-speed output traces on the 2-layer PCB (p. 22). Relocating the power stage to a physically isolated compartment and upgrading to a multi-layer board with dedicated ground planes and via stitching are critical steps for the next revision.
+			</li>
+		</ul>
+
+		<h3>4. Component Sensitivity & Layout Ruggedness</h3>
+		<ul class="itemize">
+			<li>
+				The Challenge: During the prototyping phase, the high-speed current-feedback operational amplifier (THS3491) suffered repeated catastrophic failures during power-up sequences.
+			</li>
+			\<li>
+				The Lesson: High-speed, high-performance ICs are exceptionally vulnerable to power supply transients and pin-specific layout constraints that may not be fully documented in standard datasheets. Troubleshooting this issue highlighted the value of technical community forums and rigorous power sequencing protection.
+			</li>
+		</ul>
+
+		<h2>Conclusion & Future Outlook</h2>
+		<ul>
+			<li>
+				Successful Emulation: The project successfully delivered a functional laboratory instrument capable of synthesizing fast, nanosecond-scale electrical pulses, fulfilling its primary objective of emulating PMT detector signals.
+			</li>
+			<li>
+				Hardware Validation: Developing this system provided a safe, repeatable, and highly controllable testing environment, drastically accelerating the debugging of data acquisition boards without needing complex, real-world astrophysical setups.
+			</li>
+			<li>
+				Engineering Foundation: The technical challenges encountered—specifically regarding high-speed board layout, switching power supply noise, and analog offset management—provided invaluable insights and a solid engineering foundation for future hardware revisions.
+			</li>
+			<li>
+				Scalable Architecture: The integration of programmable logic and high-speed analog stages proved that scalable, cost-effective emulation tools can effectively match the strict timing requirements of modern physics research facilities.
+			</li>
+		</ul>
+
+		<h2>Technical Stack</h2>
+		<ul class="itemize">
+			<li>
+				Hardware Engineering: Multilayer PCB Design (CircuitMaker), Component Selection, Power Isolation, Modular Daughterboard Design, PCBWay Prototyping.
+			</li>
+			<li>
+				Embedded Firmware: ESP32-C6 (C/C++, RTOS), Custom Command OS, COBS Encoding, MessagePack Serialization, ADC/DAC Interfacing.
+			</li>
+			<li>
+				Software Engineering: Python, PySide6 (Qt), Metaprogramming (JSON-driven parsers), Serialization Protocols, Cross-Platform Desktop App Development.
+			</li>
+			<li>
+				Protocols & I/O: High/Low-Speed CAN Bus, LIN Bus, I2C/I2S/SPI, UART, PWM, Differential Audio Sampling.
+			</li>
+			<li>
+				Mechanical: 3D Polymeric Enclosure Design.
+			</li>
+		</ul>
+	</div>
+
+	<!------------------------------------------------------------->
+
+	</body>
+</html>

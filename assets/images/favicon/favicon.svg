@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="0 0 680 680" fill="none"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><g clip-path="url(#clip0_1001_27)">
+<circle cx="340" cy="340" r="250" fill="white" stroke="black" stroke-width="32"></circle>
+<path d="M123.845 297.433H151.657V325.245H123.845V297.433ZM193.072 297.433H229.75V382H170.561L187.944 360.619H203.936V323.724L156.133 382H123.845L193.072 297.433ZM249.001 297.433H330.439C334.756 298.476 337.364 301.083 338.262 305.255V318.813H267.036V360.619H312.448V350.407H277.509V329.026H338.262V374.221C337.219 378.509 334.611 381.102 330.439 382H249.001C244.713 380.957 242.12 378.364 241.222 374.221V305.255C242.265 300.938 244.858 298.331 249.001 297.433ZM350.039 297.433H439.473C443.181 298.186 445.716 300.489 447.078 304.342V354.622C444.847 360.851 439.285 363.227 430.391 361.749L447.078 382H414.79L397.885 361.532H386.977V340.151H421.482V318.813H375.852V382H350.039V297.433ZM484.668 318.813V360.619H530.298V318.813H484.668ZM466.634 297.433H548.29C551.998 298.186 554.533 300.489 555.895 304.342V375.09C554.533 379.117 551.998 381.421 548.29 382H466.634C462.346 380.957 459.753 378.364 458.855 374.221V305.255C459.898 300.938 462.491 298.331 466.634 297.433Z" fill="black"></path>
+<g clip-path="url(#clip1_1001_27)">
+<circle cx="123.495" cy="465" r="50" transform="rotate(-30 123.495 465)" fill="#008C4A" stroke="black" stroke-width="16"></circle>
+<circle cx="556.507" cy="215" r="50" transform="rotate(-30 556.507 215)" fill="#4990E2" stroke="black" stroke-width="16"></circle>
+<circle cx="465.001" cy="556.506" r="50" transform="rotate(-30 465.001 556.506)" fill="#D0011B" stroke="black" stroke-width="16"></circle>
+<circle cx="215.001" cy="123.494" r="50" transform="rotate(-30 215.001 123.494)" fill="#F6A624" stroke="black" stroke-width="16"></circle>
+</g>
+</g><defs>
+<clipPath id="clip0_1001_27">
+<rect width="680" height="680" fill="white"></rect>
+</clipPath>
+<clipPath id="clip1_1001_27">
+<rect width="616" height="616" fill="white" transform="translate(-80.7349 227.264) rotate(-30)"></rect>
+</clipPath>
+</defs></svg>

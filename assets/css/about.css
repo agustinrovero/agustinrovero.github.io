@@ -1,0 +1,10 @@
+.about-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: var(--section-sep) 0px 0px;
+	text-align: center;
+	flex-wrap: nowrap;
+	gap: 32px;
+}

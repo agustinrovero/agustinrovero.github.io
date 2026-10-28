@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Keyboard Rotary Gallery</title>
+  <style>
+    :root {
+      --n: 8; /* Total number of images */
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Target Wrapper: Listens to focus changes triggered by #slide-X anchors */
+    .gallery-container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      perspective: 1500px; /* Establishes depth for 3D translations */
+    }
+
+    .rotary-gallery {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Individual Card Styles */
+    .gallery-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      backface-visibility: hidden; /* Hide the back of elements to isolate the front element */
+      
+      /* Cylindrical mapping: positions elements in an outward geometric ring */
+      transform: rotateY(calc((var(--i) - 1) * (360deg / var(--n)))) translateZ(400px);
+      transition: opacity 0.4s ease;
+      opacity: 0.1; /* Fade out non-active background slides */
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Keyboard Anchor Tricks */
+    .anchor-trigger {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Pure CSS Target Logic to Rotate the Ring & Illuminate Selected Slide */
+    #slide-1:target ~ .gallery-container .rotary-gallery { transform: rotateY(0deg); }
+    #slide-1:target ~ .gallery-container [style*="--i: 1"] { opacity: 1; }
+
+    #slide-2:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-1 * (360deg / var(--n)))); }
+    #slide-2:target ~ .gallery-container [style*="--i: 2"] { opacity: 1; }
+
+    #slide-3:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-2 * (360deg / var(--n)))); }
+    #slide-3:target ~ .gallery-container [style*="--i: 3"] { opacity: 1; }
+
+    #slide-4:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-3 * (360deg / var(--n)))); }
+    #slide-4:target ~ .gallery-container [style*="--i: 4"] { opacity: 1; }
+
+    #slide-5:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-4 * (360deg / var(--n)))); }
+    #slide-5:target ~ .gallery-container [style*="--i: 5"] { opacity: 1; }
+
+    #slide-6:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-5 * (360deg / var(--n)))); }
+    #slide-6:target ~ .gallery-container [style*="--i: 6"] { opacity: 1; }
+
+    #slide-7:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-6 * (360deg / var(--n)))); }
+    #slide-7:target ~ .gallery-container [style*="--i: 7"] { opacity: 1; }
+
+    #slide-8:target ~ .gallery-container .rotary-gallery { transform: rotateY(calc(-7 * (360deg / var(--n)))); }
+    #slide-8:target ~ .gallery-container [style*="--i: 8"] { opacity: 1; }
+
+    /* Default fallback states when no target/hash exists */
+    .gallery-container .rotary-gallery { transform: rotateY(0deg); }
+    .gallery-container [style*="--i: 1"] { opacity: 1; }
+
+    /* Invisible keyboard structural links overlay */
+    .keyboard-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .nav-link {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: auto;
+      outline: none;
+    }
+
+    /* Display sequential links depending on which slide hash is currently targeted */
+    .nav-link { display: none; }
+    
+    /* Default / Slide 1 setup: Left Arrow links to Slide 8, Right Arrow links to Slide 2 */
+    body:not(:has(:target)) .link-prev-8, body:not(:has(:target)) .link-next-2 { display: block; }
+    #slide-1:target ~ .gallery-container .link-prev-8, #slide-1:target ~ .gallery-container .link-next-2 { display: block; }
+    
+    #slide-2:target ~ .gallery-container .link-prev-1, #slide-2:target ~ .gallery-container .link-next-3 { display: block; }
+    #slide-3:target ~ .gallery-container .link-prev-2, #slide-3:target ~ .gallery-container .link-next-4 { display: block; }
+    #slide-4:target ~ .gallery-container .link-prev-3, #slide-4:target ~ .gallery-container .link-next-5 { display: block; }
+    #slide-5:target ~ .gallery-container .link-prev-4, #slide-5:target ~ .gallery-container .link-next-6 { display: block; }
+    #slide-6:target ~ .gallery-container .link-prev-5, #slide-6:target ~ .gallery-container .link-next-7 { display: block; }
+    #slide-7:target ~ .gallery-container .link-prev-6, #slide-7:target ~ .gallery-container .link-next-8 { display: block; }
+    #slide-8:target ~ .gallery-container .link-prev-7, #slide-8:target ~ .gallery-container .link-next-1 { display: block; }
+
+    /* Positional separation for Left vs Right layout clicking map */
+    .nav-link[class*="prev"] { width: 50%; left: 0; cursor: left; }
+    .nav-link[class*="next"] { width: 50%; right: 0; cursor: right; }
+
+    /* Visual Instructions */
+    .instructions {
+      margin-top: 30px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+    
+    kbd {
+      background: #333;
+      border: 1px solid #555;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CSS Target State Anchors -->
+  <div id="slide-1" class="anchor-trigger"></div>
+  <div id="slide-2" class="anchor-trigger"></div>
+  <div id="slide-3" class="anchor-trigger"></div>
+  <div id="slide-4" class="anchor-trigger"></div>
+  <div id="slide-5" class="anchor-trigger"></div>
+  <div id="slide-6" class="anchor-trigger"></div>
+  <div id="slide-7" class="anchor-trigger"></div>
+  <div id="slide-8" class="anchor-trigger"></div>
+
+  <div class="gallery-container">
+    
+    <!-- Sequential keyboard focus capture ring -->
+    <div class="keyboard-nav">
+      <!-- Backwards navigation links -->
+      <a href="#slide-1" class="nav-link link-prev-1" tabindex="1"></a>
+      <a href="#slide-2" class="nav-link link-prev-2" tabindex="1"></a>
+      <a href="#slide-3" class="nav-link link-prev-3" tabindex="1"></a>
+      <a href="#slide-4" class="nav-link link-prev-4" tabindex="1"></a>
+      <a href="#slide-5" class="nav-link link-prev-5" tabindex="1"></a>
+      <a href="#slide-6" class="nav-link link-prev-6" tabindex="1"></a>
+      <a href="#slide-7" class="nav-link link-prev-7" tabindex="1"></a>
+      <a href="#slide-8" class="nav-link link-prev-8" tabindex="1"></a>
+
+      <!-- Forwards navigation links -->
+      <a href="#slide-1" class="nav-link link-next-1" tabindex="2"></a>
+      <a href="#slide-2" class="nav-link link-next-2" tabindex="2"></a>
+      <a href="#slide-3" class="nav-link link-next-3" tabindex="2"></a>
+      <a href="#slide-4" class="nav-link link-next-4" tabindex="2"></a>
+      <a href="#slide-5" class="nav-link link-next-5" tabindex="2"></a>
+      <a href="#slide-6" class="nav-link link-next-6" tabindex="2"></a>
+      <a href="#slide-7" class="nav-link link-next-7" tabindex="2"></a>
+      <a href="#slide-8" class="nav-link link-next-8" tabindex="2"></a>
+    </div>
+
+    <!-- 3D Transform Ring -->
+    <div class="rotary-gallery">
+      <div class="gallery-item" style="--i: 1;"><img src="https://picsum.photos/id/10/600/400" alt="Image 1"></div>
+      <div class="gallery-item" style="--i: 2;"><img src="https://picsum.photos/id/20/600/400" alt="Image 2"></div>
+      <div class="gallery-item" style="--i: 3;"><img src="https://picsum.photos/id/30/600/400" alt="Image 3"></div>
+      <div class="gallery-item" style="--i: 4;"><img src="https://picsum.photos/id/40/600/400" alt="Image 4"></div>
+      <div class="gallery-item" style="--i: 5;"><img src="https://picsum.photos/id/50/600/400" alt="Image 5"></div>
+      <div class="gallery-item" style="--i: 6;"><img src="https://picsum.photos/id/60/600/400" alt="Image 6"></div>
+      <div class="gallery-item" style="--i: 7;"><img src="https://picsum.photos/id/70/600/400" alt="Image 7"></div>
+      <div class="gallery-item" style="--i: 8;"><img src="https://picsum.photos/id/80/600/400" alt="Image 8"></div>
+    </div>
+
+  </div>
+
+  <div class="instructions">
+    Click the left or right side of the image to navigate manually, or press <kbd>Tab</kbd> then use <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle images.
+  </div>
+
+</body>
+</html>

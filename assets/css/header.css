@@ -1,0 +1,130 @@
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--c-background);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 var(--side-margin);
+}
+
+/**************************************************************/
+
+/* Styling variables for easy customization */
+:root {
+  --pcb-bg: #0d1117; /* Dark theme background */
+  --copper-trace: #1f2937; /* Inactive trace color (dark gray/copper) */
+  --current-glow: #00ffcc; /* Active current color (cyberpunk cyan/electric green) */
+  --text-color: #e2e8f0; /* Default text color */
+}
+
+/* 1. The Button Container (No hardcoded width or height) */
+.pcb-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 12px; /* Pad naturally - size adapts to content */
+  background: rgba(13, 17, 23, 0.8); /* Semi-transparent dark backing */
+  border: 1px solid var(--copper-trace);
+  border-radius: 4px; /* Crisp, professional geometric corners */
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+}
+
+/* 2. Button Text styling */
+.pcb-button .btn-text {
+  /* font-family: "Courier New", Courier, monospace; Tech/Engineering vibe */
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  z-index: 2; /* Keeps text above the glow layer */
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* 3. The Responsive Trace Effect Layer */
+.pcb-button .trace-border {
+  position: absolute;
+  inset: 0; /* Stretches exactly to whatever size the button is */
+  z-index: 1;
+  pointer-events: none; /* Allows clicks to pass through to the button */
+}
+
+/* The pseudo-elements act as the "electrons" traveling the circuit traces */
+.pcb-button .trace-border::before,
+.pcb-button .trace-border::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* Top and Right Trace */
+.pcb-button .trace-border::before {
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  transform: scale(0);
+  transform-origin: left top;
+  transition:
+    transform 0.2s ease-out,
+    border-color 0s 0.2s;
+}
+
+/* Bottom and Left Trace */
+.pcb-button .trace-border::after {
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  transform: scale(0);
+  transform-origin: right bottom;
+  transition:
+    transform 0.2s ease-out,
+    border-color 0s 0.2s;
+}
+
+/* --- THE HOVER STATE (The current flows) --- */
+
+.pcb-button:hover {
+  border-color: transparent; /* Hides static border to let the glowing traces pop */
+  box-shadow:
+    0 0 15px rgba(0, 255, 204, 0.15),
+    inset 0 0 10px rgba(0, 255, 204, 0.05);
+}
+
+/* Light up the text */
+.pcb-button:hover .btn-text {
+  color: var(--current-glow);
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+}
+
+/* Trigger trace movement */
+.pcb-button:hover .trace-border::before {
+  border-top-color: var(--current-glow);
+  border-right-color: var(--current-glow);
+  transform: scale(1);
+  /* Traces run sequentially */
+  transition:
+    border-color 0s,
+    transform 0.2s ease-out;
+}
+
+.pcb-button:hover .trace-border::after {
+  border-bottom-color: var(--current-glow);
+  border-left-color: var(--current-glow);
+  transform: scale(1);
+  /* Bottom-left trace fires slightly after top-right */
+  transition:
+    border-color 0s 0.15s,
+    transform 0.2s ease-out 0.15s;
+}

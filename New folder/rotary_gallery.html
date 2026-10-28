@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Rotary Gallery</title>
+  <style>
+    :root {
+      --n: 8; 
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #111;
+      overflow: hidden;
+      perspective: 1200px;
+      font-family: system-ui, sans-serif;
+    }
+
+    .gallery-container {
+      position: relative;
+      width: 240px;
+      height: 160px;
+      transform-style: preserve-3d;
+      animation: rotateGallery 20s linear infinite;
+    }
+
+    .gallery-container:hover {
+      animation-play-state: paused;
+    }
+
+    .gallery-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+      transform: rotateY(calc((var(--i) - 1) * (360deg / var(--n)))) translateZ(320px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+
+    @keyframes rotateGallery {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery-container">
+    <div class="gallery-item" style="--i: 1;"><img src="https://picsum.photos/id/10/300/200" alt="Image 1"></div>
+    <div class="gallery-item" style="--i: 2;"><img src="https://picsum.photos/id/20/300/200" alt="Image 2"></div>
+    <div class="gallery-item" style="--i: 3;"><img src="https://picsum.photos/id/32/300/200" alt="Image 3"></div>
+    <div class="gallery-item" style="--i: 4;"><img src="https://picsum.photos/id/42/300/200" alt="Image 4"></div>
+    <div class="gallery-item" style="--i: 5;"><img src="https://picsum.photos/id/52/300/200" alt="Image 5"></div>
+    <div class="gallery-item" style="--i: 6;"><img src="https://picsum.photos/id/62/300/200" alt="Image 6"></div>
+    <div class="gallery-item" style="--i: 7;"><img src="https://picsum.photos/id/72/300/200" alt="Image 7"></div>
+    <div class="gallery-item" style="--i: 8;"><img src="https://picsum.photos/id/82/300/200" alt="Image 8"></div>
+  </div>
+
+</body>
+</html>

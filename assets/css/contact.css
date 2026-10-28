@@ -1,0 +1,39 @@
+.contact-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: var(--section-sep) 0px var(--section-sep);
+	text-align: center;
+	flex-wrap: nowrap;
+	gap: 32px;
+}
+
+.contact-section-title {
+	font-size: 32px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.contact-section-description {
+	font-size: 14px;
+	font-weight: medium;
+	text-align: left;
+}
+
+.contact-button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: var--c-card-background;
+	border: 1px solid var(--c-primary);
+	border-radius: 24px;
+	padding: 16px;
+	font-size: 16px;
+
+	/* Pushes the last item to the far right */
+	& > *:last-child {
+		margin-left: auto;
+	}
+}

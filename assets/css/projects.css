@@ -1,0 +1,175 @@
+.projects-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	padding: var(--section-sep) 0px 0px;
+	text-align: center;
+	gap: var(--section-vertical-gap);
+}
+
+.projects-section-title {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.projects-section-description {
+	font-size: 14px;
+	font-weight: medium;
+}
+
+.projects {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.projects > a {
+	flex: 1 1 calc((100% - 30px) / 3);
+	max-width: calc((100% - 30px) / 3);
+}
+
+@media (max-width: 768px) {
+	.projects > a {
+		flex-basis: calc((100% - 15px) / 2);
+		max-width: calc((100% - 15px) / 2);
+	}
+}
+
+@media (max-width: 480px) {
+	.projects > a {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}
+
+.project-card-tags {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 4px;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+.project-card-title {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.project-card-description {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.chip-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0px 0px 0px;
+}
+
+.chip {
+  align-self: center;
+  display: flex;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: left;
+  background-color: #000;
+  padding: 4px 8px;
+  border-radius: 32px;
+}
+
+/**************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+/* 1. The perspective wrapper */
+.flip-card-wrapper {
+  perspective: 1000px;
+  width: 100%;
+  /* REMOVED: No fixed height here anymore! */
+}
+
+/* 2. The physical card container */
+.project-card {
+	position: relative;
+	width: 100%;
+	transform-style: preserve-3d;
+	transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+	cursor: pointer;
+}
+
+/* The Trigger */
+.flip-card-wrapper:hover .project-card {
+	transform: rotateY(180deg);
+}
+
+/* 3. Front Face (The Content Anchor) */
+.flip-card-front {
+	position: relative; /* CHANGED: It now takes up physical space and dictates the height */
+	width: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	display: flex;
+	flex-direction: column;
+	background-color: var(--c-card-background);
+	border: 1px solid var(--c-primary);
+	border-radius: 16px;
+	overflow: hidden;
+	gap: 4px;
+}
+
+/* 4. Rear Face (The Shadow Layer) */
+.flip-card-back {
+	position: absolute; /* Keeps this layer glued to the front's dimensions */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%; /* Stretches to exactly match the height of the front face */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 1;
+	transform: rotateY(180deg) ;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--c-card-background);
+	color: #000000;
+	border: 1px solid var(--c-primary);
+	border-radius: 16px;
+	overflow: hidden;
+	gap: 4px;
+}
+
+/* Image behavior adjustment */
+.flip-card-front img {
+	width: 100%;
+	height: auto; /* Lets the image size naturally scale */
+	object-fit: cover;
+}
+
+/**************************************************************/
+
+.itemize {
+	list-style-type: '- ';
+	/* padding-left: 30px; */
+}

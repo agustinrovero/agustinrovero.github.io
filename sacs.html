@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Agustin Rovero</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+
+		<link rel="preconnect" href="https://googleapis.com">
+		<link rel="preconnect" href="https://gstatic.com" crossorigin>
+		<!-- Loads full ranges: Weight (100-900), Width (50-200), Slant (-10-0), YOPQ (18-122) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<link rel="stylesheet" href="assets/css/styles.css"/>
+		<link rel="stylesheet" href="assets/css/header.css"/>
+		<link rel="stylesheet" href="assets/css/projects.css"/>
+		<link rel="stylesheet" href="assets/css/hero.css"/>
+		<link rel="stylesheet" href="assets/css/contact.css"/>
+		<link rel="stylesheet" href="assets/css/about.css"/>
+		<link rel="stylesheet" href="assets/css/slideshow.css"/>
+	</head>
+
+
+	<!------------------------------------------------------------->
+
+	<body>
+	<header class="header">
+		<div>
+			<img src="assets/images/logo.svg" width="80" height="80">
+		</div>
+
+		<div>
+			<a href="index.html#projects">
+			<button class="pcb-button">
+			<span class="btn-text">Projects</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+
+			<button class="pcb-button">
+			<span class="btn-text">Skills</span>
+			<span class="trace-border"></span>
+			</button>
+
+			<a href="#contact">
+			<button class="pcb-button">
+			<span class="btn-text">Contact Me</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+		</div>
+	</header>
+
+	<!------------------------------------------------------------->
+
+	<div class="content" style="margin-left: 200px; margin-right: 200px; text-align: justify">
+		<h2>Project Overview</h2>
+		<p>Crucero System was an advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing. Inspired by the architectural successes of the Mirgor Monitoring System (MiMo Sysgtem), CANoe (Vector) and CANoa (Mirgor) tools used within the QA department (that used the Vector VN1600 family), the "Crucero" (Cruiser) was engineered as a significantly beefed-up, multi-protocol powerhouse. Over a 1.5-year end-to-end development cycle, I served as the sole engineer responsible for the full-stack creation of this system—encompassing advanced multi-layer PCB design, low-level embedded firmware, a reactive Python/PySide6 desktop application, and custom mechanical housing.</p>
+
+		<h2>The Challenge</h2>
+		<p>
+		Modern automotive Quality Assurance demanded flexible test equipment capable of interacting with multiple communication protocols (CAN, LIN), simulating variable battery conditions, and analyzing multi-channel audio simultaneously. Existing commercial tools were often siloed, expensive, or lacked the modularity required for rapid test configuration. The goal was to build a consolidated, robust instrumentation platform that could serve as a "Swiss Army knife" for complex automotive validation.
+		</p>
+
+		<h2>My Impact & Key Contributions</h2>
+		<h3>1. Advanced Hardware Engineering & Instrumentation</h3>
+		I designed the entire system architecture from the ground up, utilizing CircuitMaker for ECAD and PCBWay for manufacturing.
+
+		<ul class="itemize">
+			<li>
+				Core Compute: Integrated the cutting-edge ESP32-C6 microcontroller to handle high-speed processing and modern connectivity.
+			</li>
+			<li>
+    			Modular Communication Nodes: Designed and implemented two interchangeable custom CAN modules supporting both low-speed and high-speed CAN protocols, alongside an onboard LIN transceiver for complete automotive network coverage.
+			</li>
+			<li>
+				Analog Signal Simulation & SWC Emulation: Engineered 4 Digital-to-Analog Converters (digital potentiometers paired with analog buffers) tied directly to the battery reference voltage to simulate analog Steering Wheel Controls (SWC) and other resistive peripheral networks required for active validation cycles.
+			</li>
+			<li>
+    			High-Fidelity Telemetry: Built a comprehensive monitoring array including local battery voltage/current sensing, remote kelvin-sensing battery measurement (VCC and GND terminals), and an 8-channel audio ADC configured as 4 differential inputs for advanced audio analysis.
+			</li>
+			<li>
+    			Isolated Power Architecture: Structured the board with dual USB-C interfaces (one for normal operation, one for debugging/power) ensuring the main high-current banana inputs were exclusively dedicated to powering the Device Under Test (DUT) through isolated measuring ICs.
+			</li>
+			<li>
+				Expanded I/O & UI: Integrated an I/O expander driving 8 general IOs, a buzzer, and 5 user-addressable LEDs for real-time status indication and 2 PWM pins.
+			</li>
+		</ul>
+
+		<h3>2. Embedded Operating System & Firmware Architecture</h3>
+		I developed the foundational firmware, transforming the ESP32-C6 into a reactive, message-driven embedded operating system.
+		<ul class="itemize">
+			<li>
+				Robust Packet Encoding: Implemented Consistent Overhead Byte Stuffing (COBS) to guarantee reliable packet framing over UART.
+			</li>
+			<li>
+    			High-Efficiency Serialization: Developed a command processor that deserialized incoming user commands utilizing the MessagePack format, minimizing data overhead and execution latency.
+			</li>
+		</ul>
+
+		<h3>3. Dynamic Host Software & Driver Architecture (Python / PySide6)</h3>
+		To control the platform, I architected a flexible, data-driven desktop ecosystem.
+
+		<ul class="itemize">
+			<li>
+    			Self-Describing Hardware: Engineered a Python driver that automatically queried the PCB upon connection, allowing the hardware to dynamically inform the software of its implemented functions and capabilities.
+			</li>
+			<li>
+    			Meta-Driven Command Parser: Wrote a custom command parser (similar to argparse) that dynamically loaded its configuration structure from a JSON file. This decoupling allowed engineers to modify the command syntax or structure entirely within JSON, leaving the core Python code completely untouched.
+			</li>
+			<li>
+    			User Interface: Developed a clean, responsive graphical user interface using PySide6 to give QA operators real-time control and telemetry visualization.
+			</li>
+		</ul>
+
+		<h3>4. Mechanical Design</h3>
+		<ul class="itemize">
+			<li>
+				Designed a custom, rugged enclosure tailored for laboratory environment demands, which was successfully prototyped and deployed via 3D printing.
+			</li>
+		</ul>
+
+
+
+		<h2>Technical Stack</h2>
+		<ul class="itemize">
+			<li>
+				Hardware Engineering: Multilayer PCB Design (CircuitMaker), Component Selection, Power Isolation, Modular Daughterboard Design, PCBWay Prototyping.
+			</li>
+			<li>
+				Embedded Firmware: ESP32-C6 (C/C++, RTOS), Custom Command OS, COBS Encoding, MessagePack Serialization, ADC/DAC Interfacing.
+			</li>
+			<li>
+				Software Engineering: Python, PySide6 (Qt), Metaprogramming (JSON-driven parsers), Serialization Protocols, Cross-Platform Desktop App Development.
+			</li>
+			<li>
+				Protocols & I/O: High/Low-Speed CAN Bus, LIN Bus, I2C/I2S/SPI, UART, PWM, Differential Audio Sampling.
+			</li>
+			<li>
+				Mechanical: 3D Polymeric Enclosure Design.
+			</li>
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+
+	<!------------------------------------------------------------->
+
+
+	<div class="slideshow-container">
+
+	<div class="mySlides fade">
+		<div class="numbertext">1 / 3</div>
+		<img src="assets/images/Crucero/PCB_Top_View.PNG">
+		<div class="text">Caption Text</div>
+	</div>
+
+	<div class="mySlides fade">
+		<div class="numbertext">2 / 3</div>
+		<img src="https://picsum.photos/id/10/300/200">
+		<div class="text">Caption Two</div>
+	</div>
+
+	<div class="mySlides fade">
+		<div class="numbertext">3 / 3</div>
+		<img src="https://picsum.photos/id/10/300/200">
+		<div class="text">Caption Three</div>
+	</div>
+
+	<!-- Next and previous buttons -->
+	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	</div>
+
+	<br>
+
+	<!-- The dots/circles -->
+	<div style="text-align:center">
+		<span class="dot" onclick="currentSlide(1)"></span>
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
+	</div>
+
+
+
+
+
+
+
+
+	<script src="assets/js/slideshow.js"></script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+:root {
+
+
+	--reference-color: hsl(134, 81%, 48%);
+	--primaty-color: #17de46;
+
+	--color-1: #17DE45;
+	--color-2: #de17b0;
+
+	--color-50: #E8FDED;
+	--color-100: #BEF8CC;
+	--color-200: #95F4AB;
+	--color-300: #6BEF8A;
+	--color-400: #42EB69;
+	--color-500: #17DE46;
+	--color-600: #14BD3B;
+	--color-700: #10942E;
+	--color-800: #0B6A21;
+	--color-900: #074114;
+	--color-950: #021707;
+
+
+
+
+	--c-background: #0A130E;
+	--c-card-background: #121E17;
+	--c-primary: #00A859;
+	--c-secondary: #00D2D3;
+	--c-text: #F4F6F8;
+
+	--main-font: "Science Gothic", sans-serif;
+
+	--section-sep: 50px;
+	--side-margin: 64px;
+
+	--section-vertical-gap: 16px;
+	--section-horizontal-gap: 32px;
+}
+
+*{
+    font-family: var(--main-font);
+	color: var(--text-color);
+	text-decoration: none;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color: var(--c-background);
+
+	font-family: var(--main-font);
+	color: var(--c-text);
+}
+
+.content {
+	margin: 0 var(--side-margin);
+}
+
+.eyebrow {
+	/* align-self: center; */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 0;
+
+	border: 1px solid var(--c-secondary);
+    color: var(--c-secondary);
+    background: var(--c-card-background);
+
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0px;
+	text-align: left;
+
+	padding: 4px 8px;
+	border-radius: 32px;
+	gap: 4px;
+
+	.dot {
+		width: 10px;
+		height: 10px;
+
+		border-radius: 50%;        /* Makes it a perfect circle */
+		display: inline-block;     /* Allows behavior like text */
+
+		background-color: var(--c-secondary);
+    	box-shadow: 0 0 8px var(--c-secondary); /* Subtle glow effect */
+	}
+}
+
+
+
+
+
+
+.imagen-superior-derecha {
+    float: right;
+    width: 400px; /* Ajustá el ancho según lo que necesites */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-left: 50px; /* Separa el texto para que no quede pegado a la izquierda de la imagen */
+    margin-bottom: 50px; /* Separa el texto que quede abajo */
+}

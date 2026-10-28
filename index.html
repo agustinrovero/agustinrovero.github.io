@@ -1,12 +1,600 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home - Agustin Rovero</title><meta name="description" content="⚡ Agustín Rovero Engineering smart systems that connect hardware, software, and innovation. I design and build intelligent electronic systems that bridge hardware, firmware, and software."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="./"><link rel="stylesheet" href="./assets/css/style.css?v=e19cced6341d15e84c3d202e5e386440"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"./index.html"},"headline":"Home","datePublished":"2026-05-29T16:28-03:00","dateModified":"2026-06-01T10:26-03:00","image":{"@type":"ImageObject","url":"./media/website/Frame-32.png","height":680,"width":680},"description":"⚡ Agustín Rovero Engineering smart systems that connect hardware, software, and innovation. I design and build intelligent electronic systems that bridge hardware, firmware, and software.","author":{"@type":"Person","name":"Agustin Rovero","url":"./authors/agustin-rovero/"},"publisher":{"@type":"Organization","name":"Agustin Rovero","logo":{"@type":"ImageObject","url":"./media/website/Frame-32.png","height":680,"width":680}}}</script><noscript><style>img[loading] {
-                    opacity: 1;
-                }</style></noscript></head><body class="page-template"><div class="container container--center"><header class="header"><div class="header__logo"><a class="logo" href="./index.html"><img src="./media/website/Frame-32.png" alt="Agustin Rovero" width="680" height="680"></a></div><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li class="active"><a href="./index.html" target="_self">Home</a></li><li><a href="./projects/index.html" target="_self">Projects</a></li><li><a href="./volunteers/index.html" target="_self">Volunteers</a></li><li><a href="./adfadf/index.html" target="_self">About Me</a></li></ul></nav></header><main class="content page"><article class="post"><header><h1 class="post__title">Home</h1></header><div class="post__entry"><h1>⚡ Agustín Rovero<br>Engineering smart systems that connect hardware, software, and innovation.</h1><figure class="post__image post__image--left"><img loading="lazy" style="margin-bottom: 1.37143rem; margin-right: 1.37143rem; outline: rgba(13, 139, 242, 0.55) solid 2.4px !important;" src="./media/posts/10/Photo2.png" alt="" width="235" height="235" sizes="(min-width: 920px) 703px, (min-width: 700px) calc(82vw - 35px), calc(100vw - 81px)" srcset="./media/posts/10/responsive/Photo2-xs.png 300w, ./media/posts/10/responsive/Photo2-sm.png 480w, ./media/posts/10/responsive/Photo2-md.png 768w, ./media/posts/10/responsive/Photo2-lg.png 1024w"></figure><p>I design and build intelligent electronic systems that bridge hardware, firmware, and software.</p><p>With over 7 years of experience in product development, QA automation, and control systems, I’ve engineered solutions ranging from ESP32-based monitoring platforms to FPGA pro<span style="font-size: inherit;">cess controllers and smart IoT devices.</span></p><p>Driven by curiosity and precision, I thrive in creating tools that empower teams, streamline testing, and bring ideas to life. My work blends technical depth with creativity—whether it’s dev<span style="font-size: inherit;">eloping CAN simulators for automotive certification or crafting smart meters for energy efficiency.</span></p></div></article></main><footer class="footer"><div class="footer__inner"><div class="footer__copyright"><p>© 2024 Powered by Publii CMS :: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank" rel="noopener">Theme</a> ported by the <a href="https://getpublii.com/customization-service/" target="_blank" rel="noopener">Publii Team</a></p></div></div></footer></div><script defer="defer" src="./assets/js/scripts.min.js?v=c2232aa7558e9517946129d2a1b8c770"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
-        for (var i = 0; i < images.length; i++) {
-            if (images[i].complete) {
-                images[i].classList.add('is-loaded');
-            } else {
-                images[i].addEventListener('load', function () {
-                    this.classList.add('is-loaded');
-                }, false);
-            }
-        }</script></body></html>
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Agustin Rovero</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+
+		<link rel="preconnect" href="https://googleapis.com">
+		<link rel="preconnect" href="https://gstatic.com" crossorigin>
+		<!-- Loads full ranges: Weight (100-900), Width (50-200), Slant (-10-0), YOPQ (18-122) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<link rel="stylesheet" href="assets/css/styles.css"/>
+		<link rel="stylesheet" href="assets/css/header.css"/>
+		<link rel="stylesheet" href="assets/css/projects.css"/>
+		<link rel="stylesheet" href="assets/css/hero.css"/>
+		<link rel="stylesheet" href="assets/css/contact.css"/>
+		<link rel="stylesheet" href="assets/css/about.css"/>
+	</head>
+
+
+	<!------------------------------------------------------------->
+
+	<body>
+	<header class="header">
+		<div>
+			<img src="assets/images/logo.svg" width="80" height="80">
+		</div>
+
+		<div>
+			<a href="#projects">
+			<button class="pcb-button">
+			<span class="btn-text">Projects</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+
+			<button class="pcb-button">
+			<span class="btn-text">Skills</span>
+			<span class="trace-border"></span>
+			</button>
+
+			<a href="#contact">
+			<button class="pcb-button">
+			<span class="btn-text">Contact Me</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+		</div>
+	</header>
+
+	<!------------------------------------------------------------->
+
+	<div class="content">
+		<div class="hero-section">
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				flex: 0 0 58%;
+				align-items: flex-start;
+				text-align: left;
+				gap: var(--section-vertical-gap);
+				margin: 0 24px 0 24px;
+				">
+				<div class="eyebrow">
+					<div class="dot"></div>
+					Engineering smart systems that connect hardware, software, and innovation.
+				</div>
+				<div class="hero-section-title">
+					Designing Robust Hardware, Embedded Systems & Custom PCBs
+				</div>
+				<div class="hero-section-description">
+					I bridge the gap between hardware architecture and low-level software. From schematic layout and PCB prototyping to bare-metal firmware and validation testbenches, I turn technical concepts into functional, real-world electronics.
+				</div>
+
+				<div style="
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 8px;
+					flex-grow: 1;
+					">
+					<button class="pcb-button">
+						<span class="btn-text">View Projects</span>
+						<span class="trace-border"></span>
+					</button>
+					<button class="pcb-button">
+						<span class="btn-text">Get in Touch</span>
+						<span class="trace-border"></span>
+					</button>
+				</div>
+
+				<div class="stat-section">
+					<div class="stat-card">
+						<div class="stat-card-title">20+</div>
+						<div class="stat-card-description">Electronic builds and prototypes.</div>
+					</div>
+
+					<div class="stat-card">
+						<div class="stat-card-title">8</div>
+						<div class="stat-card-description">Core tools and platforms used regularly.</div>
+					</div>
+
+					<div class="stat-card">
+						<div class="stat-card-title">100 %</div>
+						<div class="stat-card-description">Hands-on design, testing, and iteration.</div>
+					</div>
+				</div>
+			</div>
+
+			<!----------------------------->
+
+			<!--flex: 0 0 42%;-->
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				text-align: left;
+				gap: 16px;
+				padding: 16px;
+				border-radius: 24px;
+				border: 1px solid var(--c-primary);
+				background-color: var(--c-card-background);
+				">
+				<div class="eyebrow">
+					<div class="dot"></div>
+					Workbench Snapshot
+				</div>
+				<div style="
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 16px;
+
+					">
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/iot.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Sensors & IoT</div>
+						</div>
+
+						<div class="hero-card-description">
+							Wireless monitoring, data collection, and real-time feedback with displays, alerts, and connected dashboards.
+						</div>
+					</div>
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/chip.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Embedded</div>
+						</div>
+
+						<div class="hero-card-description">
+							Firmware for STM32, ESP32, and MCU-based systems with sensor input, control logic, and communication interfaces.
+						</div>
+					</div>
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/pcb.svg"
+								width="24" height="24"
+							/>
+							<div class="hero-card-title">PCB</div>
+						</div>
+						<div class="hero-card-description">
+							Design and build circuit boards, prototypes, and microcontroller-based devices.
+						</div>
+					</div>
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/power.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Power Systems</div>
+						</div>
+
+						<div class="hero-card-description">
+							DC-DC converters, SMPS, BMS, and power distribution engineered for efficiency and stability.
+						</div>
+					</div>
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/robot.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Control</div>
+						</div>
+
+						<div class="hero-card-description">
+							Closed-loop feedback loops, PID algorithms, sensor fusion, and precision motor drivers for accurate real-time system response.
+						</div>
+					</div>
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/automation.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Automation</div>
+						</div>
+
+						<div class="hero-card-description">
+							Hardware-in-the-loop (HIL) testing, automated validation testbenches, and custom measurement rigs using Python and SCPI control.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!----------------------------->
+
+		<div id="projects" class="projects-section">
+			<div style="
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: end;
+				gap: var(--section-horizontal-gap);
+				">
+				<div style="
+					display: flex;
+					flex-direction: column;
+					justify-content: start;
+					width: 75%;
+					align-items: start;
+					text-align: left;
+					gap: var(--section-vertical-sep);
+					">
+					<div class="eyebrow">
+						<div class="dot"></div>
+						Featured Work
+					</div>
+					<div class="projects-section-title">Projects that combine electronics, code, and practical design.</div>
+					<!--
+					<div class="projects-section-description">Replace these examples with your real builds. Each card can highlight the challenge, hardware used, firmware details, test results, and what you learned during development.</div>
+					-->
+				</div>
+				<div>
+					<button class="pcb-button">
+						<span class="btn-text" style="font-size: 12px;">Ask About a Project</span>
+						<span class="trace-border"></span>
+					</button>
+				</div>
+			</div>
+
+			<div class="projects">
+				<a href="bellgram.html">
+					<div class="flip-card-wrapper">
+						<div class="project-card">
+							<div class="flip-card-back">
+								<div style="padding: 16px">
+									BellGram is an ultra-compact (32x32 mm) IoT notification bridge that connects physical input events directly to Telegram instant messaging using an ESP32-C3 microcontroller. It features four optically isolated input channels to safely step down high-voltage signals from household doorbells or industrial relays. For completely app-free deployment, it hosts a native web server that creates a Wi-Fi Access Point captive portal, allowing users to dynamically configure Wi-Fi credentials, Telegram Bot Tokens, Chat IDs, and custom messages via any browser. All parameters are saved directly to an onboard Non-Volatile Storage (NVS) partition to ensure full data resiliency across power outages.
+									<h2>Continue reading</h2>
+								</div>
+							</div>
+							<div class="flip-card-front">
+								<img src="assets/images/BellGram/Thumbnail.png">
+								<div style="padding: 0 16px 16px">
+									<div class="project-card-tags">
+										<div>System Design</div>
+										<div>2026</div>
+									</div>
+									<div class="project-card-title">BellGram</div>
+									<div class="project-card-description">
+										An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
+									</div>
+									<div class="chip-group">
+										<div class="chip">C/C++</div>
+										<div class="chip">KiCAD</div>
+										<div class="chip">FreeCAD</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<a href="crucero.html">
+					<div class="flip-card-wrapper">
+						<div class="project-card">
+							<div class="flip-card-back">
+								<div style="padding: 16px">
+									The Crucero System was a high-performance hardware and software validation platform designed to streamline automotive electronics testing. Built on an ESP32-C6 core, the system features a custom multi-layer PCB with modular CAN nodes, LIN, an 8-channel audio ADC, 8 GPIO, and four DACs for steering wheel control emulation. Its low-level embedded firmware acts as a message-driven OS utilizing COBS packet framing and MessagePack serialization over UART. Controlled via a data-driven Python and PySide6 desktop application, the platform integrates self-describing hardware, a JSON-driven command parser, and real-time telemetry visualization inside a custom 3D-printed enclosure.
+									<h2>Continue reading</h2>
+								</div>
+							</div>
+							<div class="flip-card-front">
+								<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
+								<div style="padding: 0 16px 16px">
+									<div class="project-card-tags">
+										<div>System Design</div>
+										<div>2024</div>
+									</div>
+									<div class="project-card-title">Crucero System</div>
+									<div class="project-card-description">
+										An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
+									</div>
+									<div class="chip-group">
+										<div class="chip">C/C++</div>
+										<div class="chip">Python</div>										
+										<div class="chip">CircuitMaker</div>
+										<div class="chip">3D Modeling</div>
+										<div class="chip">3D Printing</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<a href="mimo.html">
+					<div class="flip-card-wrapper">
+						<div class="project-card">
+							<div class="flip-card-back">
+								<div style="padding: 16px">
+									The Mirgor Monitoring System was a validation system built to test Volkswagen infotainment components via automated environmental stress testing and multi-channel telemetry. It features a custom multi-layer ESP32 PCB that measures voltage, current, audio levels, and THD inside a rugged housing with a CPC37 connector. Its low-latency C/C++ firmware manages data acquisition, a CAN Bus stack for vehicle simulation, and edge-to-hub streaming across six simultaneous nodes. Driven by a Python master application, the closed-loop system features real-time fault detection and temperature tracking to pinpoint failures immediately during long-endurance certification cycles.
+									<h2>Continue reading</h2>
+								</div>
+							</div>
+							<div class="flip-card-front">
+								<img src="assets/images/MiMo/Thumbnail.png">
+								<div style="padding: 0 16px 16px">
+									<div class="project-card-tags">
+										<div>QA Tool</div>
+										<div>2022</div>
+									</div>
+									<div class="project-card-title">Mirgor Monitoring System</div>
+									<div class="project-card-description">
+										A validation system built to test VW infotainment components via automated environmental stress testing and multi-channel telemetry.
+									</div>
+									<div class="chip-group">
+										<div class="chip">C/C++</div>
+										<div class="chip">Python</div>										
+										<div class="chip">CircuitMaker</div>
+										<div class="chip">Raspberry Pi</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<a href="jirawololo.html">
+					<div class="flip-card-wrapper">
+						<div class="project-card">
+							<div class="flip-card-back">
+								<h2>Rear Content</h2>
+							</div>
+							<div class="flip-card-front">
+								<img src="assets/images/BellGram/thumbnail.jpg">
+								<div style="padding: 0 16px 16px">
+									<div class="project-card-tags">
+										<div>Productivity Tool</div>
+										<div>2022</div>
+									</div>
+									<div class="project-card-title">Jira WoLoLo</div>
+									<div class="project-card-description">
+										A productivity tool that automates Jira Work Log Logging, allowing users to effortlessly create, track and manage their work hours within the Jira platform.
+									</div>
+									<div class="chip-group">
+										<div class="chip">Python</div>
+										<div class="chip">Jira</div>
+										<div class="chip">API</div>
+										<div class="chip">JQL</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<a href="quickpulse.html">
+					<div class="flip-card-wrapper">
+						<div class="project-card">
+							<div class="flip-card-back">
+								<h2>Rear Content</h2>
+							</div>
+							<div class="flip-card-front">
+								<img src="assets/images/BellGram/thumbnail.jpg">
+								<div style="padding: 0 16px 16px">
+									<div class="project-card-tags">
+										<div>Productivity Tool</div>
+										<div>2022</div>
+									</div>
+									<div class="project-card-title">Quick Pulse WoLoLo</div>
+									<div class="project-card-description">
+										This project focused on the design, development, and implementation of QuickPulse, a dedicated high-speed electronic pulse generator designed to emulate Photomultiplier Tubes (PMTs). Developed within the framework of the Southern Wide-field Gamma-ray Observatory (SWGO) astrophysics research project, this device served as a crucial laboratory tool to test and calibrate data acquisition electronics without relying on unpredictable real-world particle detections.
+									</div>
+									<div class="chip-group">
+										<div class="chip">C/C++</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<!----------------------------->
+
+		<div id="about" class="about-section">
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: center;
+				gap: 16px;
+				">
+				<div style="
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: flex-start;
+					text-align: center;
+					gap: 16px;
+					">
+					<div class="eyebrow">
+						<div class="dot"></div>
+						About
+					</div>
+					<div>
+						I am a passionate Systems Engineer with a deep interest in technology, process optimization, and complex problem-solving. My core expertise lies at the intersection of hardware, firmware, and software, specifically in the development and validation of embedded systems.
+					</div>
+				</div>
+			</div>
+
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: left;
+				gap: 16px;
+				flex: 0 0 50%;
+				font-size: 16px;
+				border: 1px solid #cccccc;
+				border-radius: 8px;
+				padding: 16px;
+				">
+				<div class="eyebrow">
+					<div class="dot"></div>
+					About Me
+				</div>
+				<p>I am a passionate Systems Engineer with a deep interest in technology, process optimization, and complex problem-solving. My core expertise lies at the intersection of hardware, firmware, and software, specifically in the development and validation of embedded systems.</p>
+				<p>Throughout my career, I have cultivated a strong professional philosophy: I don't just build systems; I create the tools that empower teams to test, refine, and deploy them with confidence. Driven by an insatiable curiosity, I thrive in environments that challenge me to connect low-level electronics with high-level automation platforms.</p>
+				<h3>Technical Journey & Expertise</h3>
+				<p>With over 10 years of hands-on experience in product development and technical leadership, I have successfully driven projects from initial architectural design to mass deployment. Some of my most impactful contributions include:
+				<ul>
+					<li>IoT & Smart Metering: I spearheaded the development of advanced firmware for smart meters utilizing ESP32 platforms. I engineered custom solutions for reliable data acquisition, low-power optimization, and secure cloud connectivity.</li>
+					<li>Automotive QA Automation: To bridge the gap in complex test environments, I designed and built custom CAN bus automotive simulators. These tools effectively automated quality assurance pipelines, drastically reducing testing bottlenecks and human error.</li>
+					<li>Industrial Control Systems: I have designed deterministic, low-level process controllers utilizing FPGAs, ensuring high-speed execution and precision control for critical industrial operations.</li>
+				</ul>
+				</p>
+
+			</div>
+
+		</div>
+
+		<!----------------------------->
+
+		<div id="contact" class="contact-section">
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: center;
+				gap: 16px;
+				">
+
+				<div class="eyebrow">
+					<div class="dot"></div>
+					Contact
+				</div>
+
+				<div class="contact-section-title">
+					Let's Bring Hardware to Life
+				</div>
+
+				<div class="contact-section-description">
+					Have a complex hardware challenge, an embedded systems puzzle, or an innovative prototype idea? Let's talk system design, hardware validation, or full-stack electronic engineering. Drop me a line, and let’s turn a block diagram into working hardware.
+				</div>
+
+				<div class="contact-section-description">
+					Explore my open-source hardware repositories on GitHub or connect with me on LinkedIn for professional inquiries, project collaborations, and design consultations.
+				</div>
+			</div>
+
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: stretch;
+				text-align: left;
+				gap: 16px;
+				border: 1px solid var(--c-primary);
+				background-color: var(--c-card-background);
+				border-radius: 24px;
+				padding: 16px;
+				flex: 0 0 40%;
+				">
+
+				<div style="
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: flex-start;
+					gap: 0px;
+					">
+
+					<div style="font-size: 24px;">Quick Links</div>
+
+				</div>
+
+				<a href="https://github.com/agustinrovero">
+					<div class="contact-button">
+						<img src="assets/images/icons/github.svg" height="24">
+						<img src="assets/images/icons/external-link.svg" height="24">
+					</div>
+				</a>
+				<a href="https://www.linkedin.com/in/agustinrovero/">
+					<div class="contact-button">
+						<img src="assets/images/icons/linkedin.png" height="24">
+						<img src="assets/images/icons/external-link.svg" height="24">
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!------------------------------------------------------------->
+
+	</body>
+</html>
